@@ -253,6 +253,7 @@
 
 /* Define to 1 if you have the <malloc.h> header file. */
 #if !defined(__APPLE__)
+#undef HAVE_MALLOC_H
 #define HAVE_MALLOC_H 1
 #else
 /* #undef HAVE_MALLOC_H */

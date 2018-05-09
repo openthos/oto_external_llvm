@@ -124,7 +124,7 @@ LOCAL_MODULE_HOST_OS := linux
 endif
 
 include $(LLVM60_HOST_BUILD_MK)
-include $(BUILD_HOST_SHARED_LIBRARY)
+#include $(BUILD_HOST_SHARED_LIBRARY)
 
 ifeq (,$(filter $(TARGET_ARCH),$(LLVM60_SUPPORTED_ARCH)))
 $(warning TODO $(TARGET_ARCH): Enable llvm build)
@@ -165,7 +165,9 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_EXPORT_C_INCLUDE_DIRS := \
   $(LOCAL_PATH)/include \
   $(LOCAL_PATH)/device/include \
-  $(call local-generated-sources-dir)
+  $(call generated-sources-dir-for,STATIC_LIBRARIES,libLLVM60Core)
+
+LOCAL_SHARED_LIBRARIES := libdl
 
 include $(LLVM60_DEVICE_BUILD_MK)
 include $(LLVM60_GEN_ATTRIBUTES_MK)

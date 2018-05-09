@@ -239,6 +239,7 @@
 #define HAVE_MALLINFO 1
 
 /* Define to 1 if you have the <malloc.h> header file. */
+#undef HAVE_MALLOC_H
 #define HAVE_MALLOC_H 1
 
 /* Define to 1 if you have the <malloc/malloc.h> header file. */

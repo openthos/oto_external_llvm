@@ -25,6 +25,7 @@
 #include "llvm/Support/raw_ostream.h"
 #include <assert.h>
 #include <string.h>
+#include <sys/syscall.h>
 
 // Include the platform-specific parts of this class.
 #ifdef LLVM_ON_UNIX

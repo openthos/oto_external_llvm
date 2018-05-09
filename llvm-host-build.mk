@@ -54,6 +54,7 @@ endif
 LOCAL_CPPFLAGS :=	\
 	$(LOCAL_CPPFLAGS)	\
 	-Wno-sign-promo         \
+	-Wno-comment            \
 	-std=c++11
 
 LOCAL_CPPFLAGS_linux := \
@@ -74,6 +75,10 @@ LOCAL_C_INCLUDES :=	\
 LOCAL_LDLIBS_darwin += -lncurses
 LOCAL_LDLIBS_linux += -lncurses
 LOCAL_LDLIBS_linux += -lgcc_s
+
+ifeq ($(shell test $(PLATFORM_SDK_VERSION) -lt 23 && echo PreMM),PreMM)
+LOCAL_LDLIBS += $(LOCAL_LDLIBS_$(HOST_OS))
+endif
 
 LOCAL_IS_HOST_MODULE := true
 
